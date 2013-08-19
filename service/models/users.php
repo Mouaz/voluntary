@@ -1,12 +1,13 @@
 <?php
 
-include 'actions/general.php';
-include '../init.php';
+include '../service/actions/general.php';
+include '../service/init.php';
 
 
 function user_id_from_email($email){
 	$email = sanitize($email);
-	$query = mysql_query("SELECT `user_id` FROM  `user` WHERE  `Email` =  '$email'");
+	//echo "SELECT `user_id` FROM  `user` WHERE  `email` =  '$email'";
+	$query = mysql_query("SELECT `user_id` FROM  `user` WHERE  `email` =  '$email'")or die(mysql_error());
 	//echo (mysql_result($query,0));
 	return (mysql_result($query,0));
 }

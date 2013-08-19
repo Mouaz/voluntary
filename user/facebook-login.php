@@ -16,7 +16,7 @@
  */
 
 require '../service/fb-src/facebook.php';
-require '../service/init.php';
+require '../service/models/users.php';
 
 // Create our Application instance (replace this with your appId and secret).
 $facebook = new Facebook(array(
@@ -48,7 +48,7 @@ if ($user) {
 if ($user) {
   $logoutUrl = $facebook->getLogoutUrl();
 } else {
-  $loginUrl = $facebook->getLoginUrl(array('scope' =>'user_birthday , email, user_events, publish_actions'));
+  $loginUrl = $facebook->getLoginUrl(array('scope' =>'user_birthday , email, publish_actions, publish_stream'));
   
 }
 
@@ -137,14 +137,14 @@ print_r($userlocation);*/
 	//print_r($user_data);
 	//$login = login($user_data['email']
 	$_SESSION['user_id'] = $session_user_id;
-	header('Location: http://taski.herobo.com/schedule.html');
+	//header('Location: http://taski.herobo.com/schedule.html');
 						exit();
 		}else{
 		if($user_profile['gender']==='male')
 		$sex = 1;
 		else $sex =0;
 		$register_data = array(
-								'name' => $user_profile['name'],
+								'user_name' => $user_profile['name'],
 								'email' => $user_profile['email'],
 								'birth_date' => $user_profile['birthday'],
 								'gender' => $sex);
@@ -163,7 +163,7 @@ print_r($userlocation);*/
       <h3>Your User Object (/me)</h3>
       <pre><?php print_r($user_profile); ?></pre>
     <?php }else{ ?>
-    <?php } ?>
+    <?php echo 'blabla';} ?>
 
   </body>
 </html>
