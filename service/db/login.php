@@ -1,9 +1,9 @@
 <?php
 
-$db_hostname = "mysql15.000webhost.com";
-$db_database = "a7259681_vmm";
-$db_username = "a7259681_vmm";
-$db_password = "orange2012";
+$db_hostname = "127.0.0.1";
+$db_database = "vmm_db";
+$db_username = "root";
+$db_password = "";
 
 /*
 http://sql16.000webhost.com/phpMyAdmin/index.php?db=a6968513_taskidb&lang=en-utf-8&token=f736f4ab91364fd10efec4868e0047e2

@@ -274,11 +274,11 @@ form:after {
 	<section id="content">
 
 		<form method="post" action="index.php" id="login-form">
-			<h1>3eila wa7da </h1>
-			
+			<h1>3eila wa7da </h1>    
 				<?php
 //include 'http://vmm.vacau.com/service/init.php';
 //include $_SERVER['DOCUMENT_ROOT'] . "/service/init.php";
+error_reporting(0);
 include "../service/init.php";
 include "../service/models/admins.php";
 
