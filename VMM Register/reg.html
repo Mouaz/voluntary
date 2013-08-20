@@ -1,0 +1,128 @@
+<html>
+	<head>
+		<title>Register</title>
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<script src="tabs.js"></script>
+		<script src="validate.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+	
+    
+  
+  
+  $('#register-form').submit(function(){
+		var that = $(this);
+		var url = that.attr('action');
+		//var url = "service/register.php";
+		var method = that.attr('method');
+		data = {};
+		
+		that.find('[name]').each(function(index , value){
+			var that = $(this);
+			 name = that.attr('name');
+			 value = that.val();
+			 data[name]=value;
+		});
+		
+		$.ajax({
+			url: url,
+			type: method,
+			data: data,
+			
+			success: function(response){
+			$('#register-error').html(response);
+			
+			},
+			error: function(){
+				alert('error!');
+                    }
+		});
+	return false;
+  });
+  
+	  });
+		</script>
+
+	</head>
+
+	<body>
+		
+		<h1>VMM Register</h1>
+				<div id="wrapper">
+		  <div id="tabContainer">
+		    <div class="tabs">
+		      <ul>
+		        <li id="tabHeader_1">Profile</li>
+		        <li id="tabHeader_2">Personal</li>
+		        <li id="tabHeader_3">Extra</li>
+		      </ul>
+		    </div>
+		    <div class="tabscontent">
+		    	<form method="POST" action="reg.php" class="ajax" id="reg" onsubmit="return validate_all();">
+		      <div class="tabpage" id="tabpage_1">
+		        <h2>Profile</h2>
+
+			
+				<label>username:</label>
+				<input type="text" name="username" id="username" onblur="validate_username()" required>
+				<label id="req_username" class="required"></label>
+
+				</br>
+				<label>email:</label>
+				<input type="email" name="email" id="email" onblur="validate_email()" required>
+				<label id="req_email" class="required"></label>
+								
+				</br>
+				<label>password:</label>
+				<input type="password" name="password" id="pass1" required>
+
+				</br>
+				<label>confirm password:</label>
+				<input type="password" name="pass_confirm" id="pass2" onblur="check_pass()" required>
+				<label id="req_pass2" class="required"></label>
+			
+
+		      </div>
+		      <div class="tabpage" id="tabpage_2">
+		        <h2>Personal</h2>
+		        
+			
+				<label>birthdate:</label>
+				<input type="date" name="birthdate" required>
+				</br>
+
+				<label>gender:</label>
+				<input type="radio" name="gender" value="male" id="male">
+				<label for="male">Male</label>
+				<input type="radio" name="gender" value="female" id="female">
+				<label for="female">Female</label>
+
+				</br>
+				<label>job description:</label>
+				<input type="text" name="job_description" required>
+				
+		      </div>
+		      <div class="tabpage" id="tabpage_3">
+		        <h2>Extra</h2>
+		        
+		        
+		        	<label>recieve notifications:</label>
+		        	<input type="checkbox" name="updates">
+		        </br>
+		        	<label>mobile:</label>
+		        	<input type="text" name="phone_number" required>
+		        </br>
+
+				<button type="submit" id="signUp">
+					submit
+				</button>
+		      </div>
+		      
+
+		      </form>
+		    </div>
+		  </div>
+		  </div>
+		<script src="tabs.js"></script>
+	</body>
+</html>
