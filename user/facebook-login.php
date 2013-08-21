@@ -137,7 +137,7 @@ print_r($userlocation);*/
 	//print_r($user_data);
 	//$login = login($user_data['email']
 	$_SESSION['user_id'] = $session_user_id;
-	//header('Location: http://taski.herobo.com/schedule.html');
+	header('pofb.php');
 						exit();
 		}else{
 		if($user_profile['gender']==='male')
