@@ -30,6 +30,9 @@
 			<label> Description: <?php echo $cases["description"]; ?> </label>
 			</br>
 
+			<label> Location: <?php echo $cases["location"]; ?> </label>
+			</br>
+
 			<label> Applied: <?php echo $cases["applied"]; ?> </label>
 			</br>
 
