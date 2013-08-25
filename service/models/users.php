@@ -5,6 +5,7 @@ include '../service/init.php';
 
 function post_to_facebook($link, $message){
 require_once '../service/fb-src/facebook.php';
+error_reporting(0);
 $link = sanitize($link);
 $message = sanitize($message);
 $facebook = new Facebook(array(
@@ -16,7 +17,7 @@ $user = $facebook->getUser();
 if($user){
 try {
 //$facebook = new Facebook('149481341919753', '74620fc5100b64fc7864d4dc08bf2605');
-print_r($_SESSION['fb_149481341919753_access_token']);
+//print_r($_SESSION['fb_149481341919753_access_token']);
 $facebook->api_client->session_key = $_SESSION['fb_149481341919753_access_token'];
 /*$fetch = array('friends' =>
 array('pattern' => '.*',

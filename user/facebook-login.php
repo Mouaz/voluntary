@@ -138,7 +138,7 @@ print_r($userlocation);*/
 	//$login = login($user_data['email']
 	$_SESSION['user_id'] = $session_user_id;
 	//header('pofb.php');
-	post_to_facebook('http://www.twitter.com\mouazAlabsawi', 'this is my twitter account');
+	post_to_facebook('https://twitter.com/MouazAlabsawi', 'this is my twitter account');
 						exit();
 		}else{
 		if($user_profile['gender']==='male')
