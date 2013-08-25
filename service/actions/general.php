@@ -29,6 +29,8 @@ mysql_query("INSERT INTO `log_file` (`message`) VALUES ('$event')") or die(mysql
 
 }
 }
+
+
 /*
 if($_GET['message']==1){
 $file = 'log.dat';

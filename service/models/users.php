@@ -3,7 +3,38 @@
 include '../service/actions/general.php';
 include '../service/init.php';
 
+function post_to_facebook($link, $message){
+require_once '../service/fb-src/facebook.php';
+$link = sanitize($link);
+$message = sanitize($message);
+$facebook = new Facebook(array(
+  'appId'  => '149481341919753',
+  'secret' => '74620fc5100b64fc7864d4dc08bf2605',
+));
 
+$user = $facebook->getUser();
+if($user){
+try {
+//$facebook = new Facebook('149481341919753', '74620fc5100b64fc7864d4dc08bf2605');
+print_r($_SESSION['fb_149481341919753_access_token']);
+$facebook->api_client->session_key = $_SESSION['fb_149481341919753_access_token'];
+/*$fetch = array('friends' =>
+array('pattern' => '.*',
+'query' => 'select uid2 from friend where uid1={$user}'));*/
+$ret_obj = $facebook->api('/me/feed', 'POST',
+                                    array(
+                                      'link' => $link,
+                                      'message' => $message
+                                 ));
+
+} catch(Exception $e) {
+echo $e . '<br />';
+}
+}else{
+echo 'ana feen?';
+}
+
+}
 function user_id_from_email($email){
 	$email = sanitize($email);
 	//echo "SELECT `user_id` FROM  `user` WHERE  `email` =  '$email'";

@@ -79,7 +79,7 @@ $naitik = $facebook->api('/naitik');
       <a href="<?php echo $logoutUrl; ?>">Logout</a>
     <?php else: ?>
       <div>
-        <a href="<?php echo $loginUrl; ?>">Login with Facebook</a>
+        <a href="<?php echo $loginUrl; ?>">Login with Facebook <small>click if you are not redirected</small></a>
       </div>
     <?php endif ?>
 
@@ -138,7 +138,7 @@ print_r($userlocation);*/
 	//$login = login($user_data['email']
 	$_SESSION['user_id'] = $session_user_id;
 	//header('pofb.php');
-	post_on_facebook('www.twitter.com\mouazAlabsawi', 'this is my twitter account');
+	post_to_facebook('http://www.twitter.com\mouazAlabsawi', 'this is my twitter account');
 						exit();
 		}else{
 		if($user_profile['gender']==='male')
@@ -164,7 +164,7 @@ print_r($userlocation);*/
       <h3>Your User Object (/me)</h3>
       <pre><?php print_r($user_profile); ?></pre>
     <?php }else{ ?>
-    <?php echo 'blabla';} ?>
+    <?php } ?>
 
   </body>
 </html>
