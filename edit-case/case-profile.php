@@ -25,24 +25,32 @@
             </header>       
       <div  class="form">
     		<form id="contactform"> 
+			<?php
+			require '../service/models/cases.php';
+
+				$case_data = get_case_data($_GET['case_id'],'title','description','location','closed','image');
+				//print_r($case_data);
+			?>
     			<p class="contact"><label for="name">Title</label></p> 
-    			<input id="name" name="name" placeholder="First and last name" required="" tabindex="1" type="text"> 
+    			<input id="title" name="title" value="<?php echo $case_data['title']?>" required="" type="text"> 
     			 
     			<p class="contact"><label for="email">Description</label></p> 
-    			<input id="email" name="email" placeholder="example@domain.com" required="" type="email"> 
+    			<input id="description" name="description" value="<?php echo $case_data['description']?>" required="" type="text"> 
                 
                 <p class="contact"><label for="username">Location</label></p> 
-    			<input id="username" name="username" placeholder="username" required="" tabindex="2" type="text"> 
+    			<input id="location" name="location" value="<?php echo $case_data['location']?>" required="" tabindex="2" type="text"> 
     			 
         
   
             <select class="select-style gender" name="gender">
             <option value="select">status</option>
-            <option value="m">Closed</option>
-            <option value="f">Opened</option>
+            <option value="1" <?php if($case_data['closed']==1) echo "selected='selected'" ?>>Closed</option>
+            <option value="0" <?php if($case_data['closed']==0) echo "selected='selected'" ?>>Opened</option>
             </select><br><br>
             
 <label>Image:</label>
+<br><br>
+<?php echo "<img src='../".$case_data["image"]."' / height='250'>"; ?><br><br>
 		<input id ="upload"type="file" name="image" accept="image/*">
 		</br>            <input class="buttom" name="submit" id="submit" tabindex="5" value="Update" type="submit"> 	 
    </form> 

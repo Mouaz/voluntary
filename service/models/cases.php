@@ -10,6 +10,9 @@ array_walk($update_data,'array_sanitize');
 	
 	$update = array();
 	
+	move_uploaded_file($_FILES["image"]["tmp_name"], "../Images Uploaded/" . $_FILES["image"]["name"]);
+	$image = "Images Uploaded/".$_FILES["image"]["name"];
+	
 	foreach($update_data as $field=>$data){
 		//if($field==='private'){
 		//$update[]='`'.$field.'`'.'='.$data;
@@ -37,9 +40,9 @@ add_log("\n [".$date->format('Y-m-d H:i:s')."] ".' updates a case to be '." with
 
 }
 
-function case_log_data($case_id){
+function get_case_data($case_id){
 $data = array();
-$case_id = (int)$task_id;
+$case_id = (int)$case_id;
 $func_num_args = func_num_args();
 $func_get_args = func_get_args();
 
