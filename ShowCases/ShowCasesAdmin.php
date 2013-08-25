@@ -23,7 +23,14 @@
 	<h1>Cases of my NGO</h1>
 
 	<?php while ($cases = mysql_fetch_array($getCases)) { ?>
-	<?php if ($cases["closed"] == 1) $closed = "YES"; else $closed = "NO"; ?>
+	<?php 
+		if ($cases["closed"] == 1) {
+			$nameResult = mysql_query("SELECT user_name FROM user WHERE user_id = ".$cases["accepted_id"]);
+			$nameArray = mysql_fetch_array($nameResult);
+			$closed = "YES </br> Accepted: ".$nameArray["user_name"];
+		} 
+			else $closed = "NO"; 
+	?>
 		<div <?php echo "id=".$cases["case_id"]; ?> >
 			<h2> <?php echo $cases["title"]; ?> </h2>
 
@@ -31,12 +38,6 @@
 			</br>
 
 			<label> Location: <?php echo $cases["location"]; ?> </label>
-			</br>
-
-			<label> Applied: <?php echo $cases["applied"]; ?> </label>
-			</br>
-
-			<label> Accepted: <?php echo $cases["accepted"]; ?> </label>
 			</br>
 
 			<label> Closed: <?php echo $closed; ?> </label>
