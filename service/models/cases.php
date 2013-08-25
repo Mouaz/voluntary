@@ -25,14 +25,14 @@ array_walk($update_data,'array_sanitize');
 	//echo ','.implode(', ',$update);
 
 
-	mysql_query("UPDATE `cases` SET ".implode(', ',$update)." WHERE `task`.`task_id` = '$task_id'")or die(mysql_error());
+	mysql_query("UPDATE `cases` SET ".implode(', ',$update)." WHERE `cases`.`case_id` = '$case_id'")or die(mysql_error());
 
-$log_case_data = task_log_data($task_id,'case_id','title','location');	
+$log_case_data = get_case_data($case_id,'case_id','title','location');	
 //print_r($log_task_data);
 $date = new DateTime();
 $date->setTimezone(new DateTimeZone('Europe/Istanbul'));
 
-add_log("\n [".$date->format('Y-m-d H:i:s')."] ".' updates a case to be '." with title : ".$log_task_data[1]." ,and its location : ".$log_task_data['location']."\n");
+add_log("\n [".$date->format('Y-m-d H:i:s')."] ".' updates a case to be '." with title : ".$log_case_data[1]." ,and its location : ".$log_case_data['location']."\n");
 
 	//print_r($update);
 	//$id = mysql_update_id();

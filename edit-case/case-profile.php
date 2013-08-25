@@ -23,14 +23,23 @@
 			<header>
 				<h1><span></span> Edit a case profile</h1>
             </header>       
-      <div  class="form">
-    		<form id="contactform"> 
+      <div  class="form" >
+    		<form id="contactform" action='update-case.php?case_id=<?php echo (int)$_GET['case_id'] ?>' method="post" enctype="multipart/form-data"> 
 			<?php
+			if(isset($_GET['success'])){
+				echo "case successfully updated<br><br><br>";
+				}
 			require '../service/models/cases.php';
 
 				$case_data = get_case_data($_GET['case_id'],'title','description','location','closed','image');
 				//print_r($case_data);
+				//$_POST['case_id']=$_GET['case_id'];
+				
+				
 			?>
+				<p class="contact"><label for="case_id">Case no:</label></p> 
+    			<input id="case_id" name="case_id" disabled="disabled" value="<?php echo $_GET['case_id']?>" required="" type="text">
+				
     			<p class="contact"><label for="name">Title</label></p> 
     			<input id="title" name="title" value="<?php echo $case_data['title']?>" required="" type="text"> 
     			 
@@ -42,7 +51,7 @@
     			 
         
   
-            <select class="select-style gender" name="gender">
+            <select class="select-style gender" name="closed" id="closed">
             <option value="select">status</option>
             <option value="1" <?php if($case_data['closed']==1) echo "selected='selected'" ?>>Closed</option>
             <option value="0" <?php if($case_data['closed']==0) echo "selected='selected'" ?>>Opened</option>
@@ -51,8 +60,8 @@
 <label>Image:</label>
 <br><br>
 <?php echo "<img src='../".$case_data["image"]."' / height='250'>"; ?><br><br>
-		<input id ="upload"type="file" name="image" accept="image/*">
-		</br>            <input class="buttom" name="submit" id="submit" tabindex="5" value="Update" type="submit"> 	 
+		<input id ="image" type="file" name="image" accept="image/*">
+		</br>            <input class="buttom" name="submit" id="submit" tabindex="5" value="Update" action='update-case.php' method="post" type="submit"> 	 
    </form> 
 </div>      
 </div>
