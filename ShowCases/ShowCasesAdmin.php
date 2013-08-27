@@ -7,7 +7,7 @@
 	//_________FOR TESTING ONLY__________\\
 	$rep_id = 2;
 
-	$getNgoId = mysql_query("SELECT ngo_id FROM ngo_rep WHERE ngo_rep_id = ".$rep_id.);
+	$getNgoId = mysql_query("SELECT ngo_id FROM ngo_rep WHERE ngo_rep_id = ".$rep_id);
 	$result = mysql_fetch_array($getNgoId);
 	$ngo_id = $result["ngo_id"];
 
@@ -33,8 +33,10 @@
 	?>
 		<div <?php echo "id=".$cases["case_id"]; ?> >
 
-			<?php $appliedResult = mysql_query("SELECT * FROM User_Case WHERE case_id = ".$cases["case_id"]);
-			$applied = mysql_num_rows($appliedResult); ?>
+			<?php 
+				$appliedResult = mysql_query("SELECT * FROM User_Case WHERE case_id = ".$cases["case_id"]);
+				$applied = mysql_num_rows($appliedResult); 
+			?>
 
 			<h2> <?php echo $cases["title"]; ?> </h2>
 

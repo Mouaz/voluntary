@@ -11,18 +11,39 @@
 </head>
 <body>
 	<h1>View Volunteers</h1>
-	<?php
-		while ($users = mysql_fetch_array($result)) {
-			echo "<label>Name: ".$users["user_name"]."</label> </br>";
-			echo "<label>Birthdate: ".$users["birth_date"]."</label> </br>";
-			echo "<label>Job Discription: ".$users["job_description"]."</label> </br>";
-			echo "<label>Phone Number: ".$users["phone_number"]."</label> </br>";
-			echo "<label>Email: ".$users["email"]."</label> </br>";
-			echo "<img src=".$users["image"]."> </br>";
-			echo "<label>______________________________________________________</label></br></br></br>";
-			
-		}
-		 
-	?>
+	<?php while ($users = mysql_fetch_array($result)) { ?>
+			<label>Name: <?php echo $users["user_name"]; ?></label> 
+			</br>
+
+			<label>Birthdate: <?php echo $users["birth_date"]; ?></label>
+			</br>
+
+			<label>Job Discription: <?php echo $users["job_description"]; ?></label>
+			</br>
+
+			<label>Phone Number: <?php echo $users["phone_number"]; ?> </label>
+			</br>
+
+			<label>Email: <?php echo $users["email"]; ?></label>
+			</br>
+
+			<?php 
+				if ($users["image"] == "")
+					echo " <img src='../No Image'>";
+				else
+					echo " <img src='".$users["image"]."'>";
+			?>
+			</br>
+
+			<label>
+				<?php if ($_GET["acc"] == "0000") { ?>
+				<label> Accept </label>
+				<?php } else if ($case_id == ) {?>
+
+				<?php } ?>
+			</label>
+
+			<label>______________________________________________________</label></br></br></br>
+	<?php } ?>
 </body>
 </html>
