@@ -7,7 +7,7 @@
 	//_________FOR TESTING ONLY__________\\
 	$rep_id = 2;
 
-	$getNgoId = mysql_query("SELECT ngo_id FROM ngo_rep WHERE ngo_rep_id = ".$rep_id." ");
+	$getNgoId = mysql_query("SELECT ngo_id FROM ngo_rep WHERE ngo_rep_id = ".$rep_id);
 	$result = mysql_fetch_array($getNgoId);
 	$ngo_id = $result["ngo_id"];
 
@@ -23,8 +23,21 @@
 	<h1>Cases of my NGO</h1>
 
 	<?php while ($cases = mysql_fetch_array($getCases)) { ?>
-	<?php if ($cases["closed"] == 1) $closed = "YES"; else $closed = "NO"; ?>
+	<?php 
+		if ($cases["closed"] == 1) {
+			$nameResult = mysql_query("SELECT user_name FROM user WHERE user_id = ".$cases["accepted_id"]);
+			$nameArray = mysql_fetch_array($nameResult);
+			$closed = "YES </br> Accepted: ".$nameArray["user_name"];
+		} 
+			else $closed = "NO"; 
+	?>
 		<div <?php echo "id=".$cases["case_id"]; ?> >
+
+			<?php 
+				$appliedResult = mysql_query("SELECT * FROM User_Case WHERE case_id = ".$cases["case_id"]);
+				$applied = mysql_num_rows($appliedResult); 
+			?>
+
 			<h2> <?php echo $cases["title"]; ?> </h2>
 
 			<label> Description: <?php echo $cases["description"]; ?> </label>
@@ -33,19 +46,16 @@
 			<label> Location: <?php echo $cases["location"]; ?> </label>
 			</br>
 
-			<label> Applied: <?php echo $cases["applied"]; ?> </label>
-			</br>
-
-			<label> Accepted: <?php echo $cases["accepted"]; ?> </label>
-			</br>
-
 			<label> Closed: <?php echo $closed; ?> </label>
+			</br>
+
+			<label> Applied: <?php echo "<a href='../View Volunteers/ViewVolunteers.php?id=".$cases["case_id"]."'>" .$applied; ?></a> </label>
 			</br>
 
 			<label <?php echo "onclick='deletion(".$cases["case_id"].");'";?> > Delete </label>
 			</br>
 
-			<?php echo "<img src='../".$cases["image"]."' / height='250'>"; ?>
+			<?php echo "<img src='../".$cases["image"]."' height='250px'>"; ?>
 			</br>
 			<label>______________________________________________________________________</label>
 			</br></br></br>
