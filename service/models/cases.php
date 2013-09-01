@@ -2,7 +2,40 @@
 include '../service/actions/general.php';
 include '../service/init.php';
 
+function case_request($user_id,$case_id){
+	mysql_query("INSERT INTO `user_case` (`user_id`,`case_id`) VALUES ('$user_id','$case_id')")or die(mysql_error());
+	
+$log_date = new DateTime();
+$log_date->setTimezone(new DateTimeZone('Europe/Istanbul'));
+add_log("\n [".$log_date->format('Y-m-d H:i:s').']  user with id '.$user_id.'requested case with id'.$case_id.'  \n');
+	
+}
+function cancel_request($user_request_id,$user_id){
+	mysql_query("DELETE FROM `user_friend_user` WHERE `user_2_id` =  '$user_id' AND `user_1_id` =  '$user_request_id' AND `status` = 0");
+	
+$user_1_data = user_data($user_request_id,'name');
+$user_2_data = user_data($user_id,'name');
+$log_date = new DateTime();
+$log_date->setTimezone(new DateTimeZone('Europe/Istanbul'));
+add_log("\n [".$log_date->format('Y-m-d H:i:s').'] '.$user_1_data['name'].' canceled his friend request to '.$user_2_data['name'].'\n');
+}
 
+function get_all_cases(){
+$data = array();
+
+	$result = mysql_query("SELECT * FROM `cases` ORDER BY `case_id` ASC ") or die(mysql_error());
+
+
+$index = 0;
+while($row = mysql_fetch_array($result))
+{
+     $data[$index] = $row;
+     $index++;
+}
+	return $data;
+
+
+}
 function update_case($case_id,$update_data){
 
 array_walk($update_data,'array_sanitize');

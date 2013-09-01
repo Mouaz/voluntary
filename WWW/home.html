@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+ <html class="no-js"> 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script> 
+<script type="text/javascript" src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
+		<script>
+			$(document).ready(function(){
+					$.getJSON('http://localhost/voluntary/service/get_all_cases.php',function(data){
+				var cases = data.items;
+				$.each(cases, function(index, one_case) {
+				if(one_case.closed==0){
+					$('#all-cases').append('<div data-theme="b" class="well"><li><a id="'+one_case.case_id+'"href="#popupPanel" onClick="get_task(this)" ><h2>'+one_case.title+'</h2></a> </li><p><strong>   '+one_case.description+'</strong></p>'+'<p class="ui-li-aside">opened</p></a><img src="http://localhost/voluntary/'+one_case.image+'" alt="some_text"><a id="'+one_case.case_id+'"href="#" onClick="case_request('+one_case.case_id+')"">request it</a></div>');
+					}else{
+					$('#all-cases').append('<div data-theme="b" class="well"><li><a id="'+one_case.case_id+'"href="#popupPanel" onClick="get_task(this)""><h2>'+one_case.title+'</h2></a> </li><p><strong>   '+one_case.description+'</strong></p>'+'<p class="ui-li-aside"></p></a><img src="http://localhost/voluntary/'+one_case.image+'" alt="some_text"><a id="'+one_case.case_id+'"href="#" onClick="case_request('+one_cae.case_id+')"">request it</a></div>');
+
+					}
+				});
+				var myselect = $('#all-cases');
+				myselect.listview("refresh");
+				//$('#content').slideToggle();
+			//var myselecto = $('#content');
+			//myselecto.div("refresh");
+			});
+
+			});	
+							
+			function case_request(case_id){
+				  $.ajax({
+			url: 'http://localhost/voluntary/service/user_request_case.php?case_id='+case_id,
+			
+			success: function(response){
+			//$('#friend-request-message').html(response);
+			},
+			error: function(){
+                        alert('error!');
+                    }
+			});
+	
+		
+			return false;
+			}
+		</script>
+	</head>
+	<ul id="all-cases">
+		
+	</ul>
+
+</html>
