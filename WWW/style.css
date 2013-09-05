@@ -375,6 +375,12 @@ top:1%;
 }
 
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> ff301be8639c89c4a7af2b99bdf1184f4aa10e12
 .extrasButton{
 border-style:solid; 
 border-width:3px; 
@@ -472,6 +478,7 @@ left: 5.5%
 /****************************Match All *********************************************/
 
 
+<<<<<<< HEAD
 .CaseTi{
 font-family: "Marker felt";
 color: #fff; 
@@ -534,6 +541,8 @@ background: -ms-linear-gradient(left,  rgba(224,224,224,0) 0%,rgba(224,224,224,1
 background: linear-gradient(to right,  rgba(224,224,224,0) 0%,rgba(224,224,224,1) 38%,rgba(224,224,224,1) 99%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e0e0e0', endColorstr='#e0e0e0',GradientType=1 );
     }
+=======
+>>>>>>> ff301be8639c89c4a7af2b99bdf1184f4aa10e12
 
 
 

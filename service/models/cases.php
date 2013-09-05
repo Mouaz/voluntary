@@ -2,6 +2,11 @@
 include '../service/actions/general.php';
 include '../service/init.php';
 
+function is_case_requested($user_id,$case_id){
+	$query = mysql_query("SELECT COUNT('$case_id') FROM  `user_case` WHERE  `user_id` =  '$user_id' AND `case_id` =  '$case_id'");
+	return (mysql_result($query, 0)==1) ? true : false;
+}
+
 function case_request($user_id,$case_id){
 	mysql_query("INSERT INTO `user_case` (`user_id`,`case_id`) VALUES ('$user_id','$case_id')")or die(mysql_error());
 	
@@ -10,14 +15,12 @@ $log_date->setTimezone(new DateTimeZone('Europe/Istanbul'));
 add_log("\n [".$log_date->format('Y-m-d H:i:s').']  user with id '.$user_id.'requested case with id'.$case_id.'  \n');
 	
 }
-function cancel_request($user_request_id,$user_id){
-	mysql_query("DELETE FROM `user_friend_user` WHERE `user_2_id` =  '$user_id' AND `user_1_id` =  '$user_request_id' AND `status` = 0");
+function case_cancel_request($user_id,$case_id){
+	mysql_query("DELETE FROM `user_case` WHERE `user_id` =  '$user_id' AND `case_id` =  '$case_id'");
 	
-$user_1_data = user_data($user_request_id,'name');
-$user_2_data = user_data($user_id,'name');
 $log_date = new DateTime();
 $log_date->setTimezone(new DateTimeZone('Europe/Istanbul'));
-add_log("\n [".$log_date->format('Y-m-d H:i:s').'] '.$user_1_data['name'].' canceled his friend request to '.$user_2_data['name'].'\n');
+add_log("\n [".$log_date->format('Y-m-d H:i:s').'] user no:'.$user_id.' canceled his request to '.$case_id.'\n');
 }
 
 function get_all_cases(){
