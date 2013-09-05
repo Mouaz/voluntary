@@ -6,16 +6,14 @@
 	$now = $_GET["now"];
 	if (strpos($now, "Accept Volunteer") !== false) {
 		mysql_query("UPDATE Cases SET accepted_id = ".$user_id." WHERE case_id =".$case_id) or die(mysql_error());
-		echo "Accepted";
+		echo "Updated";
 
 		$to = "mostafaasf@ymail.com";
 		$subject = "Hello";
 		$message = "masa2 el 3asal";
 		$hey = mail($to,$subject,$message,"","");
-		if ($hey == true) {
-			echo " success";
-		} else echo "fail";
+
 	} elseif (strpos($now, "Accepted") !== false) {
-		echo "Accepted";
+		echo "Already Accepted";
 	}
 ?>
