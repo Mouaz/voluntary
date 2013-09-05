@@ -1,0 +1,480 @@
+/***********************{   1st Page (index)   }***********************/
+logo
+{
+position:absolute;
+left:0%;
+bottom:0%;
+}
+
+div{
+width: 22.5%;
+height:68.5%;
+background-color:#6F7071;
+}
+
+tiName
+{ 
+font-family: "Marker felt";
+color: rgb(255,176,111); 
+font-size:150%;
+Position: relative;
+left:15%; 
+top:7%;
+
+}
+
+.box{ 
+border-style:solid; 
+border-width:3px; 
+border-color:#000000; 
+background-color:#FFFFFF; 
+text-align:center;
+width:60%;
+height:120%;
+border-radius:10px;
+font-size:100%;
+position:relative;
+left:20%;
+} 
+
+.button{
+
+border-style:solid; 
+border-width:3px; 
+border-color:rgb(255, 211 ,127); 
+background-color:rgb(255,147,36); 
+color:#FFFFFF;
+text-align:center;
+position:relative;
+left:50%; 
+width:30%;
+height:20%;
+border-radius:15px;
+font-size:100%;
+
+}
+
+.links{
+font-size:100%;
+color:rgb(255,147,36);
+text-decoration:underline;
+position:relative;
+left:57%; 
+
+}
+
+/********************{About Us}************************************/
+
+aboutUs
+{ 
+font-family: "Marker felt";
+color: rgb(255,176,111); 
+font-size:200%;
+Position: absolute;
+left:20px; 
+top:20px;
+}
+
+h{
+color: rgb(235,235,235); 
+Position:absolute; 
+left:20px;
+top:60px;
+font-size:250%;
+}
+
+/***************************{Case details}****************************************/
+welcome{
+font-family: "Marker felt";
+color: rgb(255,250,129); 
+font-size:200%;
+Position: absolute;
+left:2%; 
+top:5%;
+}
+
+.home{
+font-family: "Marker felt";
+color: rgb(250,247,182); 
+font-size:100%;
+Position: absolute;
+background: transparent;
+border: none !important;
+display:inline; 
+position:absolute; 
+bottom:3%; 
+left:0.5%;
+}
+
+.DisplayN{
+font-family: "Marker felt";
+color: rgb(254,249,52); 
+font-size:180%;
+Position: absolute;
+left:40%; 
+top:2%;
+}
+
+.CaseTi{
+font-family: "Marker felt";
+color: rgb(255,211,127); 
+font-size:200%;
+Position: absolute;
+left:2%; 
+top:9.5%;
+}
+
+.CaseDetails
+{
+font-family: "Marker felt";
+background-color:rgb(255,253,205);
+width:70%;
+height:35%;
+Position: absolute;
+left:5%; 
+top:25%;
+color:rgb(134,164,63);
+font-size:200%;
+text-align:left;
+;
+}
+.imgDiv
+{
+width:30%;
+height:80%;
+Position: absolute;
+right:-6.5%; 
+top:-10%;
+color:rgb(134,164,63);
+text-align:left;
+}
+.button2{
+
+border-style:solid; 
+border-width:3px; 
+border-color:rgb(255,147,36);
+background-color:rgb(255, 211 ,127); 
+color:#FFFFFF;
+text-align:center;
+width:40%;
+height:10%;
+border-radius:40%;
+font-size:100%;
+
+}
+
+.status{
+font-size: 100%;
+color:#ffffff;
+
+
+}
+/***************************************{ Find Match }*********************************/
+.button3{
+
+border-style:solid; 
+border-width:3px; 
+border-color:rgb(255,250,129);
+background-color:rgb(255, 211 ,127); 
+color:#FFFFFF;
+text-align:center;
+width:60%;
+height:10%;
+border-radius:15px;
+font-size:200%;
+
+}
+
+/**************************************{ Home Page }************************************/
+
+.button4{
+
+border-style:solid; 
+border-width:3px; 
+border-color:rgb(255,250,129);
+background-color:rgb(255, 162 ,103); 
+color:#FFFFFF;
+text-align:center;
+width:60%;
+height:10%;
+border-radius:15px;
+font-size:200%;
+
+}
+
+.boxHome{ 
+border-style:solid; 
+border-width:3px; 
+border-color:rgb(255,250,129); 
+background-color:rgb(235,235,235); 
+text-align:center;
+border-radius:15px;
+width:50%;
+height:7%;
+font-size:100%;
+
+
+} 
+
+.circle {
+	border-radius: 50%;
+	width: 20%;
+	height: 10%; 
+	background-color:rgb(255,250,129);
+	color:rgb(0,141,20);
+	font-family: "Marker felt";
+	font-size:200%;
+
+}
+
+
+/**********************************{ Match }**********************************************/
+
+
+.buttonMatch{
+
+border-style:solid; 
+border-width:3px; 
+border-color:rgb(255,250,129);
+background-color:rgb(255, 162 ,103); 
+color:#FFFFFF;
+text-align:center;
+width:35%;
+height:10%;
+border-radius:15px;
+font-size:100%;
+
+}
+
+
+input[type='checkbox'] {
+    -webkit-appearance:none;
+    width:30px;
+    height:30px;
+    background:#FFFFcc;
+    border-radius:5px;
+    border:2px solid #FFFFFF;
+}
+input[type='checkbox']:checked {
+    background: #ffd35f;
+}
+
+
+.title{
+font-family: "Marker felt";
+color:rgb(254,210,127);
+font-size:200%;
+width: 90%
+text-align:left;
+}
+
+
+.heading1{
+font-family: "Marker felt";
+Position: absolute;
+color:rgb(255,147,36);
+font-size:150%;
+text-align:left;
+}
+
+
+.heading2{
+font-family: "Marker felt";
+color:rgb(255,147,36);
+font-size:115%;
+text-align:left;
+}
+
+
+.boxMatch{ 
+border-style:solid; 
+border-width:3px; 
+border-color:rgb(255,147,36); 
+background-color:rgb(255,250,129); 
+ext-align:center;
+border-radius:15px;
+width:50%;
+height:7%;
+font-size:100%;
+
+} 
+
+/**************************************{ NGO Contact }**********************************************/
+.box3{ 
+border-style:solid; 
+border-width:5px; 
+border-color:rgb(235,250,129); 
+background-color:rgb(235,235,235); 
+text-align:left;
+width:90%;
+height:8%;
+border-radius:25%;
+font-size:100%;
+
+}
+
+
+.text1{
+font-family: "Marker felt";
+color:rgb(255,147,36);
+font-size:170%;
+text-align:center;
+
+} 
+
+.text{
+font-family: "Marker felt";
+color:rgb(255,211,127);
+font-size:170%;
+text-align:left;
+}
+
+.Msg{ 
+border-style:solid; 
+border-width:5px; 
+border-color:rgb(235,250,129); 
+background-color:rgb(235,235,235); 
+text-align:left;
+width:90%;
+height:20%;
+border-radius:10%;
+font-size:100%;
+
+}
+
+.send{
+border-style:solid; 
+border-width:3px; 
+border-color:rgb(255,147,36);
+background-color:rgb(255, 211 ,127); 
+color:rgb(255,147,36);
+text-align:center;
+width:30%;
+height:8%;
+border-radius:15%;
+font-size:100%;
+
+
+}
+
+
+/*****************************************************************************************************************************************************************/
+/******************************************* PAGES WITH TABS **********************************************/
+
+
+
+/********************* Extars *********************************************/
+
+.regist{
+font-family: "Marker felt";
+color: rgb(255,211,127); 
+font-size:200%;
+position:absolute;
+left:3%; 
+top:1%;
+}
+
+
+
+
+
+.extrasButton{
+border-style:solid; 
+border-width:3px; 
+border-color:rgb(255,147,36);
+background-color:rgb(255,147,36); 
+color:rgb(254,249 , 52);
+text-align:center;
+width:30%;
+height:8%;
+border-radius:15%;
+font-size:100%;
+position: absolute;
+top: 14%;
+left: 65.5%
+
+}
+
+.fontExtras{
+font-family: "Marker felt";
+color: rgb(255,251,125); 
+font-size:140%;
+}
+
+.font2Extras{
+font-family: "Marker felt";
+color: rgb(255,251,125); 
+font-size:110%;
+}
+
+
+
+.registerButton{
+border-style:solid; 
+border-width:3px; 
+border-color:rgb(255,211,127);
+background-color:rgb(255,250,120); 
+color:rgb(255,147,36);
+text-align:center;
+width:30%;
+height:8%;
+border-radius:15%;
+font-size:100%;
+position: absolute;
+top: 55%;
+right:15%;
+
+
+}
+
+
+
+
+
+
+/********************* Personal *********************************************/
+.personalButton{
+border-style:solid; 
+border-width:3px; 
+border-color:rgb(255,125,84);
+background-color:rgb(255,125,84); 
+color:rgb(254,249 , 52);
+text-align:center;
+width:30%;
+height:8%;
+border-radius:15%;
+font-size:100%;
+position: absolute;
+top: 14%;
+left: 35.5%
+
+}
+
+
+
+/********************* Profile *********************************************/
+
+.profileButton{
+border-style:solid; 
+border-width:3px; 
+border-color:rgb(255,162,103);
+background-color:rgb(255,162,103); 
+color:rgb(254,249 , 52);
+text-align:center;
+width:30%;
+height:8%;
+border-radius:15%;
+font-size:100%;
+position: absolute;
+top: 14%;
+left: 5.5%
+
+}
+
+
+/****************************Match All *********************************************/
+
+
+
+
+
