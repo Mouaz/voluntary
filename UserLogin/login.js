@@ -16,7 +16,7 @@ function logIn(){
       };
     }
   };
-  e.open("GET", "login.php?username=" + document.getElementById("username").value +
+  e.open("GET", "http://192.168.1.130:8888/voluntary/service/login.php?username=" + document.getElementById("username").value +
   						            "&password=" + document.getElementById("password").value, true);
   e.send();
 }

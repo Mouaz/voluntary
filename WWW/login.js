@@ -12,11 +12,10 @@ function logIn(){
         document.getElementById("wrong").innerHTML = "yes";
       } else if (text == "wrong") {
         alert("Wrong username or password.");
-        //document.getElementById("wrong").innerHTML = "Wrong username or password.";
       };
     }
   };
-  e.open("GET", "http://192.168.1.136/voluntary/service/login.php?username=" + document.getElementById("username").value +
+  e.open("GET", "http://192.168.1.130:8888/voluntary/service/login.php?username=" + document.getElementById("username").value +
   						            "&password=" + document.getElementById("password").value, true);
   e.send();
 }

@@ -5,21 +5,21 @@
 
 
 //______________MAC OS______________\\
-/*
+
 $db_hostname = "localhost";
-$db_database = "a7259681_vmm";
+$db_database = "vmm_db";
 $db_username = "root";
 $db_password = "root";
-*/
+
 
 
 //______________WINDOWS______________\\
-
+/*
 $db_hostname = "127.0.0.1";
 $db_database = "vmm_db";
 $db_username = "root";
 $db_password = "";
-
+*/
 
 
 /*
