@@ -1,0 +1,150 @@
+ body {
+  padding-top: 90px;
+  padding-bottom: 0px;
+  background-color: rgb(111,112,113);
+
+}
+
+
+
+.container1{
+  background-color:#eee;
+  width: 50%;
+ -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+  color: #ff9900;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+label.valid {
+  width: 35px;
+  height: 35px;
+  background: url(assets/ico/Done.png) center center no-repeat;
+  display: inline-block;
+  text-indent: -9999px;
+}
+
+label.error {
+  font-weight: bold;
+  color: orange;
+  padding: 2px 8px;
+  margin-top: 2px;
+}
+
+
+   .navbar .brand { max-height: 120px; 
+    overflow: visible;
+    padding-top: 2;
+    padding-bottom: 0;
+    margin-top: 10px;
+    padding-right: 5px;
+    float:left;
+   
+}
+
+.btn {
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   width: 40%;
+   position: relative;
+   left:32%;
+}
+
+
+
+
+footer {
+
+            color: #666;
+            background: #222;
+            padding: 10px 0 18px 0;
+            border-top: 1px solid #000;
+            height:40px;
+            margin-top:370px;
+            
+        }
+        footer a {
+            color: #999;
+            position: absolute;
+            bottom: -50px;
+        }
+        footer a:hover {
+            color: #efefef;
+        }
+        .wrapper {
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+            margin: 0 auto -80px;
+
+
+        }
+        .push {
+            height: 63px;
+
+        }
+        /* not required for sticky footer; just pushes hero down a bit */
+        .wrapper > .container {
+            padding-top: 60px;
+        }
+
+
+
+
+/********************************************** Add Case **************************************************************/
+
+
+.btn2 {
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   width: 20%;
+   font-family: "Arial";
+   font-style: bold ;
+   text-align: center;
+  
+}
+
+
+
+
+
+
+
+
