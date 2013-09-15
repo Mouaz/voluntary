@@ -18,9 +18,9 @@
 	$result = mysql_fetch_array($getNgoId);
 	$ngo_id = $result["ngo_id"];
 
-	$query = "INSERT INTO Cases (title, description, location, closed, image, ngo_id) 
+	$query = "INSERT INTO cases (title, description, location, closed, image, ngo_id) 
 				 VALUES ('".$title."', '".$desc."', '".$loc."', 0, '".$image."' , ".$ngo_id.")";
 	mysql_query($query);
-	echo "Sucess";
+	header('Location: ../ShowCases/ShowCasesAdmin.php');
 	
 ?>
