@@ -18,6 +18,7 @@ $user_data = user_data($_SESSION['user_id'],'name','email','password','gender','
 $errors = array();
 */
 //if(!isset()){
+$current_case_id = $_SESSION['case_id'];
 $session_user_id = $_SESSION['user_id'];
 //}
 $session_rep_id = $_SESSION['rep_id'];

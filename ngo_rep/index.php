@@ -280,7 +280,7 @@ form:after {
 //include 'http://vmm.vacau.com/service/init.php';
 //include $_SERVER['DOCUMENT_ROOT'] . "/service/init.php";
 include "../service/init.php";
-include "../service/models/admins.php";
+include "../service/models/ngo_reps.php";
 
 
  if(empty($_POST) === false){
@@ -310,7 +310,7 @@ include "../service/models/admins.php";
 						Username and password does not match.
 					  </div>';
 					}else{
-						session_start();
+						//session_start();
 						$_SESSION['rep_id'] = $login;
 						//echo 'login succeeded';
 						header('Location: http://localhost/voluntary/ShowCases');
