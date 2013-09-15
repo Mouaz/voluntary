@@ -311,11 +311,11 @@ include "../service/models/admins.php";
 					  </div>';
 					}else{
 						session_start();
-						$_SESSION['ngo_rep_id'] = $login;
-						echo 'login succeeded';
-						//header('Location: http://taski.herobo.com/schedule.html');
+						$_SESSION['rep_id'] = $login;
+						//echo 'login succeeded';
+						header('Location: http://localhost/voluntary/ShowCases');
 						//header('Location: schedule.html');
-						//exit();
+						exit();
 						//set user session
 						//redirect to home
 					}
