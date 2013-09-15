@@ -138,7 +138,7 @@ print_r($userlocation);*/
 	//$login = login($user_data['email']
 	$_SESSION['user_id'] = $session_user_id;
 	//header('pofb.php');
-	post_to_facebook('https://twitter.com/MouazAlabsawi', 'this is my twitter account');
+	header('Location: http://localhost/voluntary/WWW/home.html');
 						exit();
 		}else{
 		if($user_profile['gender']==='male')
@@ -155,7 +155,7 @@ print_r($userlocation);*/
 								$_SESSION['user_id'] = $session_user_id;
 								$user_data = user_data($session_user_id,'name','email','password','gender','birth_date','bio');
 								//print_r($user_data);
-								header('Location: http://taski.herobo.com/schedule.html');
+								header('Location: http://localhost/voluntary/WWW/home.html');
 						exit();
 							}
 							

@@ -34,7 +34,7 @@
 		<div <?php echo "id=".$cases["case_id"]; ?> >
 
 			<?php 
-				$appliedResult = mysql_query("SELECT * FROM User_Case WHERE case_id = ".$cases["case_id"]);
+				$appliedResult = mysql_query("SELECT * FROM user_case WHERE case_id = ".$cases["case_id"]);
 				$applied = mysql_num_rows($appliedResult); 
 			?>
 
@@ -49,7 +49,7 @@
 			<label> Closed: <?php echo $closed; ?> </label>
 			</br>
 
-			<label> Applied: <?php echo "<a href='../View Volunteers/ViewVolunteers.php?id=".$cases["case_id"]."'>" .$applied; ?></a> </label>
+			<label> Applied: <?php echo "<a href='../View Volunteers/ViewVolunteers.php?id=".$cases["case_id"]."'>" .$applied."</a>"; ?> </label>
 			</br>
 
 			<label <?php echo "onclick='deletion(".$cases["case_id"].");'";?> > Delete </label>
