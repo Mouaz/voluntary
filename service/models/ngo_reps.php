@@ -1,7 +1,7 @@
 <?php
 
+require '../service/init.php';
 include '../service/actions/general.php';
-include '../service/init.php';
 
 function ngo_rep_login($user_name,$password){
 $ngo_rep_id = ngo_rep_id_from_user_name($user_name);
