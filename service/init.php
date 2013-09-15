@@ -1,6 +1,6 @@
 <?php
 session_start();
-//error_reporting(0);
+error_reporting(0);
 
 require 'db/login.php';
 require 'db/connect.php';
@@ -17,6 +17,9 @@ $user_data = user_data($_SESSION['user_id'],'name','email','password','gender','
 
 $errors = array();
 */
+//if(!isset()){
+$session_user_id = $_SESSION['user_id'];
+//}
 $session_rep_id = $_SESSION['rep_id'];
 $session_ngo_admin_id = $_SESSION['ngo_admin_id'];
 $session_admin_id = $_SESSION['admin_id'];

@@ -1,7 +1,46 @@
 <?php
 include '../service/actions/general.php';
 include '../service/init.php';
+/////////////////////////////notifications
+function get_all_notifications($user_id){
+$data = array();
 
+	$result = mysql_query("SELECT * FROM `notification` WHERE `user_id` = $user_id ORDER BY `time` DESC ") or die(mysql_error());
+
+
+$index = 0;
+while($row = mysql_fetch_array($result))
+{
+     $data[$index] = $row;
+     $index++;
+}
+	return $data;
+
+
+}
+
+function read_notifications($not_id){
+	mysql_query("UPDATE `notification` SET `read`=1 WHERE `notification`.`id` = '$not_id'")or die(mysql_error());
+
+
+$date = new DateTime();
+$date->setTimezone(new DateTimeZone('Europe/Istanbul'));
+
+add_log("\n [".$date->format('Y-m-d H:i:s')."] ".' updates a notificatio to be '." with read : ");
+
+	//print_r($update);
+	//$id = mysql_update_id();
+	return $case_id;
+
+}
+
+function no_notifications($user_id){
+	$query = mysql_query("SELECT COUNT(`id`) FROM  `notification` WHERE  `user_id` =  '$user_id' AND `read`=0")or die(mysql_error());
+	return (mysql_result($query,0));
+}
+
+
+//////////////////////////////////
 function is_case_requested($user_id,$case_id){
 	$query = mysql_query("SELECT COUNT('$case_id') FROM  `user_case` WHERE  `user_id` =  '$user_id' AND `case_id` =  '$case_id'");
 	return (mysql_result($query, 0)==1) ? true : false;
