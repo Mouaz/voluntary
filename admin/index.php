@@ -314,6 +314,8 @@ include "../service/models/admins.php";
 						$_SESSION['admin_id'] = $login;
 						//echo 'login succeeded';
 						header('Location: http://localhost/voluntary/AddNgoAdmin');
+						echo "<script>window.top.location='http://localhost/voluntary/AddNgoAdmin'</script>";
+
 						//header('Location: schedule.html');
 						exit();
 						//set user session

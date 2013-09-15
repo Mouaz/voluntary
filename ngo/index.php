@@ -313,7 +313,9 @@ include "../service/models/admins.php";
 						session_start();
 						$_SESSION['ngo_admin_id'] = $login;
 						//echo 'login succeeded';
-						header('Location: http://localhost/voluntary/AddNgoRep');
+						//header('Location: http://localhost/voluntary/AddNgoRep');
+						echo "<script>window.top.location='http://localhost/voluntary/AddNgoRep'</script>";
+
 						//header('Location: schedule.html');
 						exit();
 						//set user session
