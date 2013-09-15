@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script> 
 <!--<script type="text/javascript" src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>-->
-<link rel="stylesheet" type="text/css" href="style.css">
+<!--<link rel="stylesheet" type="text/css" href="style.css">-->
 
 		<script>
 			$(document).ready(function(){
@@ -15,7 +15,7 @@
 				var cases = data.items;
 				$.each(cases, function(index, one_case) {
 				if(one_case.closed==0){
-						$('#all-cases').append('<li>'+
+						/*$('#all-cases').append('<li>'+
 						'<h2 class="CaseTi" >'+one_case.title+'</h2>'+
 						'<body bgcolor="#6F7071">'+
 						'<div class="CaseDetails" >'+
@@ -25,14 +25,28 @@
 						'<p class="status" style="position:absolute ;  right:10% ; top:20%;">opened</p>'+
 						'<button id="case-'+one_case.case_id+'" type="button" onClick="case_request('+one_case.case_id+')" class="button2" style="display:inline; ; position:absolute; top:62%; left: 5%;" >Volunteer</button>'+
 						'<button type="button" class="button2" style="display:inline; position:absolute; top:62%; right:5%;" >NGO</button>'+
-						'</li>');
-					//$('#all-cases').append('<div data-theme="b" class="well"><li><a id="'+one_case.case_id+'"href="#popupPanel" onClick="get_task(this)" ><h2>'+one_case.title+'</h2></a> </li><p><strong>   '
-						//+one_case.description+'</strong></p>'+'<p class="ui-li-aside">opened</p></a><img src="http://localhost/voluntary/'+one_case.image+'" alt="some_text"><a id="case-'+one_case.case_id+'" href="#" onClick="case_request('+one_case.case_id+')">request it</a></div>');
+						'</li>');*/
+					$('#all-cases').append('<div data-theme="b" class="well"><li><a id="'+one_case.case_id+'"href="#popupPanel" onClick="get_task(this)" ><h2>'+one_case.title+'</h2></a> </li><p><strong>   '
+						+one_case.description+'</strong></p>'+'<p class="ui-li-aside">opened</p></a><img src="http://localhost/voluntary/'+one_case.image+'" alt="some_text"><a id="case-'+one_case.case_id+'" href="#" onClick="case_request('+one_case.case_id+')">request it</a></div>');
 					}else{
 					$('#all-cases').append('<div data-theme="b" class="well"><li><a id="'+one_case.case_id+'"href="#popupPanel" onClick="get_task(this)""><h2>'+one_case.title+'</h2></a> </li><p><strong>   '
 						+one_case.description+'</strong></p>'+'<p class="ui-li-aside"></p></a><img src="http://localhost/voluntary/'+one_case.image+'" alt="some_text"><a id="case-'+one_case.case_id+'" href="#" onClick="case_request('+one_case.case_id+')">request it</a></div>');
 
 					}
+				  $.ajax({
+			url: 'http://localhost/voluntary/service/is_case_requested.php?case_id='+one_case.case_id,
+			
+			success: function(response){
+				if(response==1){
+					case_request(one_case.case_id);
+				}else{
+					case_cancel_request(one_case.case_id);
+				}
+			},
+			error: function(){
+                        alert('error!');
+                    }
+			});
 				});
 				var myselect = $('#all-cases');
 				myselect.listview("refresh");
