@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	include '../service/actions/general.php';
 	include '../service/init.php';
 	$username = $_GET['username'];
