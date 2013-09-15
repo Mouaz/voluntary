@@ -1,0 +1,9 @@
+<?php
+
+require 'init.php';
+include 'models/cases.php';
+
+
+if(is_case_requested($_GET['case_id']))
+
+?>
