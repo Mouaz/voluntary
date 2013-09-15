@@ -10,9 +10,9 @@
 
     <title>Show Case Details</title>
     <script type="text/javascript" src="../Needed Files/assets/js/jquery.js"></script>
-    <script type="text/javascript" src="../Needed Files/assets/js/bootstrap-dropdown.js"></script>
-    <script type="text/javascript" src="../Needed Files/assets/js/jquery-validation-1.11.1.js"></script>
-    <script type="text/javascript" src="../Needed Files/dist/js/bootstrap.js" ></script>
+    <!--<script type="text/javascript" src="../Needed Files/assets/js/bootstrap-dropdown.js"></script>-->
+    <script type="text/javascript" src="../Needed Files/assets/js/jquery-validation-1.11.1/dist/jquery.validate.min.js"></script>
+    <!--<script type="text/javascript" src="../Needed Files/dist/js/bootstrap.js" ></script> -->
     <script type="text/javascript" src="../Needed Files/dist/js/bootstrap.min.js" ></script>
 
    
