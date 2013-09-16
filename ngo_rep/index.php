@@ -313,7 +313,7 @@ include "../service/models/ngo_reps.php";
 						//session_start();
 						$_SESSION['rep_id'] = $login;
 						//echo 'login succeeded';
-						header('Location: http://localhost/voluntary/ShowCases');
+						header('Location: http://localhost:8888/voluntary/ShowCases');
 						//header('Location: schedule.html');
 						exit();
 						//set user session
