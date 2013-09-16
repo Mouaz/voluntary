@@ -11,7 +11,7 @@
 
 		<script>
 			$(document).ready(function(){
-					$.getJSON('http://localhost/voluntary/service/get_all_cases.php',function(data){
+					$.getJSON('http://192.168.1.139:8888/voluntary/service/get_all_cases.php',function(data){
 				var cases = data.items;
 				$.each(cases, function(index, one_case) {
 				$('#all-cases').append('<li><a>'+one_case.title+'</a></li>'+
@@ -28,7 +28,7 @@
 			});	
 				function change_current_case(case_id){
 					$.ajax({
-			url: 'http://localhost/voluntary/service/change_current_case.php?case_id='+case_id,
+			url: 'http://192.168.1.139:8888/voluntary/service/change_current_case.php?case_id='+case_id,
 			
 			success: function(response){
 			window.location.replace("CaseDetails.html");			

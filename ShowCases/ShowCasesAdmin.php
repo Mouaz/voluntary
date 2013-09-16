@@ -1,7 +1,6 @@
 <?php
 	include '../service/actions/general.php';
 	include '../service/init.php';
-	session_start();
 	//$rep_id = $_SESSION["rep_id"];
 
 	//_________FOR TESTING ONLY__________\\
