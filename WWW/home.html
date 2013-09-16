@@ -24,7 +24,17 @@
 			//var myselecto = $('#content');
 			//myselecto.div("refresh");
 			});
-
+				$.ajax({
+			url: 'http://localhost/voluntary/service/number_notifications.php',
+			
+			success: function(response){
+			$('#noti-button').html('Notifications ('+response+')');		
+			},
+			error: function(){
+                        alert('error!');
+                    }
+			});
+				
 			});	
 				function change_current_case(case_id){
 					$.ajax({
@@ -44,7 +54,7 @@
 	<!--<img src="profilebg.png" style="position:relative ; top:20% ; right:-5.5% ;width:90% ; height:20%"  >-->
 <logo><img src="logo_transparent.png"  width="50%" height="30%"></logo>
 <h1 class="regist">Cases</h1>
-
+<button  class="personalButton" style="float:right;" ><a id="noti-button" href="notifications.html">Notifications</a></button>
 	<div id ="content" class="box" style="position:absolute ; top:25%; left:7%;width:85% ; height:55% ;opacity: .5;filter: alpha(opacity=50);overflow:auto;">
 	
 	<ul id="all-cases">
