@@ -277,8 +277,6 @@ form:after {
 			<h1>3eila wa7da </h1>
 			
 				<?php
-//include 'http://vmm.vacau.com/service/init.php';
-//include $_SERVER['DOCUMENT_ROOT'] . "/service/init.php";
 include "../service/init.php";
 include "../service/models/ngo_reps.php";
 
@@ -312,12 +310,12 @@ include "../service/models/ngo_reps.php";
 					}else{
 						//session_start();
 						$_SESSION['rep_id'] = $login;
+						//echo $login;
 						//echo 'login succeeded';
-						header('Location: http://localhost:8888/voluntary/ShowCases');
-						//header('Location: schedule.html');
+
+						echo "<script>window.top.location='http://localhost/voluntary/ShowCases/'</script>";
+						//header('Location: http://localhost/voluntary/ShowCases/',true);
 						exit();
-						//set user session
-						//redirect to home
 					}
 					}
 	}

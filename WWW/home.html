@@ -11,46 +11,12 @@
 
 		<script>
 			$(document).ready(function(){
-					$.getJSON('http://192.168.1.103:8888/voluntary/service/get_all_cases.php',function(data){
+					$.getJSON('http://localhost/voluntary/service/get_all_cases.php',function(data){
 				var cases = data.items;
 				$.each(cases, function(index, one_case) {
-				if(one_case.closed==0){
-
-						/*$('#all-cases').append('<li>'+
-
-						'<h2 class="CaseTi" >'+one_case.title+'</h2>'+
-						'<body bgcolor="#6F7071">'+
-						'<div class="CaseDetails" >'+
-						'<p style="display:inline; position:absolute; left:2% ;top:-6%"><font size="4">'+one_case.description+'</font></p>'+
-						'<p class="imgDiv"><img src="http://192.168.1.103:8888/voluntary/'+one_case.image+'" style="position:relative  ; bottom:2%; left:80%; width:100% ; height:100%"></p>'+
-						'</div>'+
-						'<p class="status" style="position:absolute ;  right:10% ; top:20%;">opened</p>'+
-						'<button id="case-'+one_case.case_id+'" type="button" onClick="case_request('+one_case.case_id+')" class="button2" style="display:inline; ; position:absolute; top:62%; left: 5%;" >Volunteer</button>'+
-						'<button type="button" class="button2" style="display:inline; position:absolute; top:62%; right:5%;" >NGO</button>'+
-						'</li>');*/
-					$('#all-cases').append('<div data-theme="b" class="well"><li><a id="'+one_case.case_id+'"href="#popupPanel" onClick="get_task(this)" ><h2>'+one_case.title+'</h2></a> </li><p><strong>   '
-						+one_case.description+'</strong></p>'+'<p class="ui-li-aside">opened</p></a><img src="http://192.168.1.103:8888/voluntary/'+one_case.image+'" alt="some_text"><a id="case-'+one_case.case_id+'" href="#" onClick="case_request('+one_case.case_id+')">request it</a></div>');
-
-
-					}else{
-					$('#all-cases').append('<div data-theme="b" class="well"><li><a id="'+one_case.case_id+'"href="#popupPanel" onClick="get_task(this)""><h2>'+one_case.title+'</h2></a> </li><p><strong>   '
-						+one_case.description+'</strong></p>'+'<p class="ui-li-aside"></p></a><img src="http://192.168.1.103:8888/voluntary/'+one_case.image+'" alt="some_text"><a id="case-'+one_case.case_id+'" href="#" onClick="case_request('+one_case.case_id+')">request it</a></div>');
-
-					}
-				  $.ajax({
-			url: 'http://192.168.1.103:8888/voluntary/service/is_case_requested.php?case_id='+one_case.case_id,
-			
-			success: function(response){
-				if(response==1){
-					case_request(one_case.case_id);
-				}else{
-					case_cancel_request(one_case.case_id);
-				}
-			},
-			error: function(){
-                        alert('error!');
-                    }
-			});
+				$('#all-cases').append('<li><a>'+one_case.title+'</a></li>'+
+			'<div class="text" style="margin-left:5% ;">'+one_case.description+'</div><button  onclick="change_current_case('+one_case.case_id+')" style="position:relative ; left:35%;background-color:orange;color:brown;"> open</button>');
+				
 				});
 				var myselect = $('#all-cases');
 				myselect.listview("refresh");
@@ -60,44 +26,28 @@
 			});
 
 			});	
-							
-			function case_request(case_id){
-				  $.ajax({
-			url: 'http://192.168.1.103:8888/voluntary/service/user_request_case.php?case_id='+case_id+'&status=0',
+				function change_current_case(case_id){
+					$.ajax({
+			url: 'http://localhost/voluntary/service/change_current_case.php?case_id='+case_id,
 			
 			success: function(response){
-			var id = "#case-"+case_id;
-			$(id).html('<a id="case-'+case_id+'" href="#" onClick="case_cancel_request('+case_id+')">cancel request</a>');
+			window.location.replace("CaseDetails.html");			
 			},
 			error: function(){
                         alert('error!');
                     }
 			});
-	
-		
-			return false;
-			}
-			function case_cancel_request(case_id){
-				  $.ajax({
-			url: 'http://192.168.1.103:8888/voluntary/service/user_request_case.php?case_id='+case_id+'&status=1',
-			
-			success: function(response){
-			var id = "#case-"+case_id;
-			$(id).html('<a id="case-'+case_id+'" href="#" onClick="case_request('+case_id+')">request it</a>');
-			},
-			error: function(){
-                        alert('error!');
-                    }
-			});
-	
-		
-			return false;
-			}
+				}
 		</script>
 	</head>
 	<body bgcolor="#6F7071">
+	<!--<img src="profilebg.png" style="position:relative ; top:20% ; right:-5.5% ;width:90% ; height:20%"  >-->
+<logo><img src="logo_transparent.png"  width="50%" height="30%"></logo>
+<h1 class="regist">Cases</h1>
+
+	<div id ="content" class="box" style="position:absolute ; top:25%; left:7%;width:85% ; height:55% ;opacity: .5;filter: alpha(opacity=50);overflow:auto;">
+	
 	<ul id="all-cases">
-		
 	</ul>
-	</div>
+</div>
 </html>
