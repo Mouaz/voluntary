@@ -9,37 +9,13 @@
 <!--<script type="text/javascript" src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>-->
 <<link rel="stylesheet" type="text/css" href="style-notifications.css">
 
-		<script>
-			$(document).ready(function(){
-					$.getJSON('http://192.168.1.139:8888/voluntary/service/get_all_notifications.php',function(data){
-				var notifications = data.items;
-				$.each(notifications, function(index, notification) {
-				var htm = '<div class="text" style="margin-left:5% ;">'+notification.ntf_text+'<br><br><small align="right">'+(notification.time).toString('MM/dd/yyyy')+'</small></div>';
-					$('#all').append("<li id=\""+notification.id+"\">"+htm+"</li>");
-					$.ajax({
-			url: 'http://192.168.1.139:8888/voluntary/service/read_notifications.php?notification_id='+notification.id,
-			
-			success: function(response){
-			},
-			error: function(){
-                        alert('error!');
-                    }
-			});
-					//$('<tr ><div class="text" style="margin-left:5% ;">'+notification.ntf_text+'</div></tr>').appendTo('#all-notifications');
-					//$('#'+notification.id).append(htm);
-					//$('#'+notification.id).hide().fadeIn('fast');
-					//$('#content').addClass("box");
-				  //alert(htm);
-				});
-			});
-
-			});	
-		
-		</script>
+		<script src="global_javascript.js"></script>
+		<script type="text/javascript"> notification(); </script>
 	</head>
 	<body bgcolor="#6F7071">
 	<!--<img src="profilebg.png" style="position:relative ; top:20% ; right:-5.5% ;width:90% ; height:20%"  >-->
 <logo><img src="logo_transparent.png"  width="50%" height="30%"></logo>
+<button type="button" class="home"  ><a href="home.html">HOME</a></button>
 <h1 class="regist">My Notifications</h1>
 
 	<div id ="content" class="box" style="position:absolute ; top:25%; left:7%;width:85% ; height:55% ;opacity: .5;filter: alpha(opacity=50);overflow:auto;">

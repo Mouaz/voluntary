@@ -5,71 +5,8 @@
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script> 
 
 <link rel="stylesheet" type="text/css" href="style-notifications.css">
-<script>
-			$(document).ready(function(){
-			
-					$.getJSON('http://192.168.1.139:8888/voluntary/service/case_details.php',function(data){
-				var one_case = data.items;
-				//$.each(cases, function(index, one_case) {
-				//alert(one_case);
-				$('#title').text(one_case.title);
-				$('#details').html('<font size="4">'+one_case.description+'</font>');
-				$('#image').html('<img src="http://192.168.1.139:8888/voluntary/'+one_case.image+'"'+' style="position:relative  ; bottom:2%; left:80%; width:100% ; height:100%">');
-				if(one_case.closed==0){
-				$('#closed').text('opened');
-				}else{
-				$('#closed').text('closed');
-				}
-				$.ajax({
-			url: 'http://192.168.1.139:8888/voluntary/service/is_case_requested.php?case_id='+one_case.case_id,
-			
-			success: function(response){
-				if(response==1){
-					case_request(one_case.case_id);
-				}else{
-					case_cancel_request(one_case.case_id);
-				}
-			},
-			error: function(){
-                        alert('error!');
-                    }
-			});
-			});
-
-			});	
-			function case_request(case_id){
-				  $.ajax({
-			url: 'http://192.168.1.139:8888/voluntary/service/user_request_case.php?case_id='+case_id+'&status=0',
-			
-			success: function(response){
-			var id = "#vol";
-			$(id).html('<button type="button" class="button2" style="display:inline; ; position:absolute; top:62%; left: 5%;" onClick="case_cancel_request('+case_id+')">Unvolunteer</button>');
-			},
-			error: function(){
-                        alert('error!');
-                    }
-			});
-	
-		
-			return false;
-			}
-			function case_cancel_request(case_id){
-				  $.ajax({
-			url: 'http://192.168.1.139:8888/voluntary/service/user_request_case.php?case_id='+case_id+'&status=1',
-			
-			success: function(response){
-			var id = "#vol";
-			$(id).html('<button type="button" class="button2" style="display:inline; ; position:absolute; top:62%; left: 5%;" onClick="case_request('+case_id+')">Volunteer</button>');
-			},
-			error: function(){
-                        alert('error!');
-                    }
-			});
-	
-		
-			return false;
-			}
-</script>
+<script src="global_javascript.js"></script>
+<script type="text/javascript">casedetails();</script>
 </head>
 
 <h2 class="CaseTi" id="title">Case Title</h2>
@@ -80,7 +17,7 @@
 </div>
 <p class="status" style="position:absolute ;  right:10% ; top:20%;" id="closed">Status</p>
 <logo><img src="logo_transparent.png"  width="50%" height="30%"></logo>
-<button type="button" class="home"  >HOME</button>
+<button type="button" class="home"  ><a href="home.html">HOME</a></button>
 <div id="vol">Volunteer</div>
 <button type="button" class="button2" style="display:inline; position:absolute; top:62%; right:5%;" >NGO</button>
 <a href="#" class="links" style="display:inline; position:absolute; bottom:7%;left:75%;" >LOG OUT</a>
