@@ -11,13 +11,13 @@
 
 		<script>
 			$(document).ready(function(){
-					$.getJSON('http://localhost/voluntary/service/get_all_notifications.php',function(data){
+					$.getJSON('http://192.168.1.139:8888/voluntary/service/get_all_notifications.php',function(data){
 				var notifications = data.items;
 				$.each(notifications, function(index, notification) {
 				var htm = '<div class="text" style="margin-left:5% ;">'+notification.ntf_text+'<br><br><small align="right">'+(notification.time).toString('MM/dd/yyyy')+'</small></div>';
 					$('#all').append("<li id=\""+notification.id+"\">"+htm+"</li>");
 					$.ajax({
-			url: 'http://localhost/voluntary/service/read_notifications.php?notification_id='+notification.id,
+			url: 'http://192.168.1.139:8888/voluntary/service/read_notifications.php?notification_id='+notification.id,
 			
 			success: function(response){
 			},

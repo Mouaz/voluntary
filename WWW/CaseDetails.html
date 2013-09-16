@@ -8,20 +8,20 @@
 <script>
 			$(document).ready(function(){
 			
-					$.getJSON('http://localhost/voluntary/service/case_details.php',function(data){
+					$.getJSON('http://192.168.1.139:8888/voluntary/service/case_details.php',function(data){
 				var one_case = data.items;
 				//$.each(cases, function(index, one_case) {
 				//alert(one_case);
 				$('#title').text(one_case.title);
 				$('#details').html('<font size="4">'+one_case.description+'</font>');
-				$('#image').html('<img src="http://localhost/voluntary/'+one_case.image+'"'+' style="position:relative  ; bottom:2%; left:80%; width:100% ; height:100%">');
+				$('#image').html('<img src="http://192.168.1.139:8888/voluntary/'+one_case.image+'"'+' style="position:relative  ; bottom:2%; left:80%; width:100% ; height:100%">');
 				if(one_case.closed==0){
 				$('#closed').text('opened');
 				}else{
 				$('#closed').text('closed');
 				}
 				$.ajax({
-			url: 'http://localhost/voluntary/service/is_case_requested.php?case_id='+one_case.case_id,
+			url: 'http://192.168.1.139:8888/voluntary/service/is_case_requested.php?case_id='+one_case.case_id,
 			
 			success: function(response){
 				if(response==1){
@@ -39,7 +39,7 @@
 			});	
 			function case_request(case_id){
 				  $.ajax({
-			url: 'http://localhost/voluntary/service/user_request_case.php?case_id='+case_id+'&status=0',
+			url: 'http://192.168.1.139:8888/voluntary/service/user_request_case.php?case_id='+case_id+'&status=0',
 			
 			success: function(response){
 			var id = "#vol";
@@ -55,7 +55,7 @@
 			}
 			function case_cancel_request(case_id){
 				  $.ajax({
-			url: 'http://localhost/voluntary/service/user_request_case.php?case_id='+case_id+'&status=1',
+			url: 'http://192.168.1.139:8888/voluntary/service/user_request_case.php?case_id='+case_id+'&status=1',
 			
 			success: function(response){
 			var id = "#vol";

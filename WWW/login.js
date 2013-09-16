@@ -15,7 +15,7 @@ function logIn(){
       };
     }
   };
-  e.open("GET", "http://192.168.1.103:8888/voluntary/service/login.php?username=" + document.getElementById("username").value +
+  e.open("GET", "http://192.168.1.139:8888/voluntary/service/login.php?username=" + document.getElementById("username").value +
   						            "&password=" + document.getElementById("password").value, true);
   e.send();
 }
