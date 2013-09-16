@@ -28,7 +28,10 @@ $(document).ready(function(){
 	});
 		
 	});	
-		function change_current_case(case_id){
+		
+}
+
+function change_current_case(case_id){
 			$.ajax({
 	url: 'http://'+ip+'/voluntary/service/change_current_case.php?case_id='+case_id,
 
@@ -40,7 +43,6 @@ $(document).ready(function(){
 	        }
 	});
 		}
-}
 
 function notification (){
 	$(document).ready(function(){
@@ -123,7 +125,10 @@ function casedetails(){
 			});
 
 			});	
-			function case_request(case_id){
+			
+}
+
+function case_request(case_id){
 				  $.ajax({
 			url: 'http://'+ip+'/voluntary/service/user_request_case.php?case_id='+case_id+'&status=0',
 			
@@ -139,20 +144,19 @@ function casedetails(){
 		
 			return false;
 			}
-			function case_cancel_request(case_id){
-				  $.ajax({
-			url: 'http://'+ip+'/voluntary/service/user_request_case.php?case_id='+case_id+'&status=1',
-			
-			success: function(response){
-			var id = "#vol";
-			$(id).html('<button type="button" class="button2" style="display:inline; ; position:absolute; top:62%; left: 5%;" onClick="case_request('+case_id+')">Volunteer</button>');
-			},
-			error: function(){
-                        alert('error!');
-                    }
-			});
-	
-		
-			return false;
-			}
+function case_cancel_request(case_id){
+	  $.ajax({
+url: 'http://'+ip+'/voluntary/service/user_request_case.php?case_id='+case_id+'&status=1',
+
+success: function(response){
+var id = "#vol";
+$(id).html('<button type="button" class="button2" style="display:inline; ; position:absolute; top:62%; left: 5%;" onClick="case_request('+case_id+')">Volunteer</button>');
+},
+error: function(){
+            alert('error!');
+        }
+});
+
+
+return false;
 }
