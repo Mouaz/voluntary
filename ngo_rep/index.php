@@ -313,7 +313,11 @@ include "../service/models/ngo_reps.php";
 						//echo $login;
 						//echo 'login succeeded';
 
+<<<<<<< HEAD
 						echo "<script>window.top.location='http://localhost/voluntary/ShowCases/'</script>";
+=======
+						echo "<script>window.top.location='../ShowCases/'</script>";
+>>>>>>> c8bbfdd3c4ed5649e310332df8a52b5b715b8d1c
 						//header('Location: http://localhost/voluntary/ShowCases/',true);
 						exit();
 					}

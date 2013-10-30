@@ -9,46 +9,8 @@
 <!--<script type="text/javascript" src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>-->
 <link rel="stylesheet" type="text/css" href="style-notifications.css">
 
-		<script>
-			$(document).ready(function(){
-					$.getJSON('http://192.168.1.139:8888/voluntary/service/get_all_cases.php',function(data){
-				var cases = data.items;
-				$.each(cases, function(index, one_case) {
-				$('#all-cases').append('<li><a>'+one_case.title+'</a></li>'+
-			'<div class="text" style="margin-left:5% ;">'+one_case.description+'</div><button  onclick="change_current_case('+one_case.case_id+')" style="position:relative ; left:35%;background-color:orange;color:brown;"> open</button>');
-				
-				});
-				var myselect = $('#all-cases');
-				myselect.listview("refresh");
-				//$('#content').slideToggle();
-			//var myselecto = $('#content');
-			//myselecto.div("refresh");
-			});
-				$.ajax({
-			url: 'http://localhost/voluntary/service/number_notifications.php',
-			
-			success: function(response){
-			$('#noti-button').html('Notifications ('+response+')');		
-			},
-			error: function(){
-                        alert('error!');
-                    }
-			});
-				
-			});	
-				function change_current_case(case_id){
-					$.ajax({
-			url: 'http://192.168.1.139:8888/voluntary/service/change_current_case.php?case_id='+case_id,
-			
-			success: function(response){
-			window.location.replace("CaseDetails.html");			
-			},
-			error: function(){
-                        alert('error!');
-                    }
-			});
-				}
-		</script>
+		<script src="global_javascript.js"></script>
+		<script type="text/javascript">homey();</script>
 	</head>
 	<body bgcolor="#6F7071">
 	<!--<img src="profilebg.png" style="position:relative ; top:20% ; right:-5.5% ;width:90% ; height:20%"  >-->
