@@ -3,11 +3,11 @@
   include '../service/init.php';
   $rep_id = $_SESSION["rep_id"];
 
-  $getNgoId = mysql_query("SELECT ngo_id FROM ngo_rep WHERE ngo_rep_id = ".$rep_id);
+  $getNgoId = mysql_query("SELECT ngo_id FROM ngo_rep WHERE ngo_rep_id = ".$rep_id) or die(mysql_error());
   $result = mysql_fetch_array($getNgoId);
   $ngo_id = $result["ngo_id"];
 
-  $getCases = mysql_query("SELECT * FROM Cases WHERE ngo_id = ".$ngo_id);
+  $getCases = mysql_query("SELECT * FROM cases WHERE ngo_id = ".$ngo_id) or die(mysql_error());
 ?>
 <html lang="en">
   <head>
@@ -60,7 +60,7 @@
 
            
             <li ><a href="tickets.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-            <li ><a href="#addCase"><span class="glyphicon glyphicon-pencil "></span>Add Case</a></li>
+            <li ><a href="../AddCase/"><span class="glyphicon glyphicon-pencil "></span>Add Case</a></li>
             <li ><a  href="#addAdmin" ><span class="glyphicon glyphicon-user " ></span>Add Admin </a></li>
             <li ><a  href="#addRep" ><span class="glyphicon glyphicon-plus " ></span>Add Representative </a></li>
             <li  class="active"><a href="#showCase"><span class="glyphicon glyphicon-th-list"></span>Show Cases</a></li>
@@ -87,7 +87,7 @@
 <?php while ($cases = mysql_fetch_array($getCases)) { ?>
   <?php 
     if ($cases["closed"] == 1) {
-      $nameResult = mysql_query("SELECT user_name FROM user WHERE user_id = ".$cases["accepted_id"]);
+      $nameResult = mysql_query("SELECT user_name FROM user WHERE user_id = ".$cases["accepted_id"]) or die(mysql_error());
       $nameArray = mysql_fetch_array($nameResult);
       $closed = "Closed </br> Accepted: ".$nameArray["user_name"];
     } 
@@ -96,7 +96,7 @@
   <div <?php echo "id=".$cases["case_id"]; ?> >
 
     <?php 
-        $appliedResult = mysql_query("SELECT * FROM user_case WHERE case_id = ".$cases["case_id"]);
+        $appliedResult = mysql_query("SELECT * FROM user_case WHERE case_id = ".$cases["case_id"]) or die(mysql_error());
         $applied = mysql_num_rows($appliedResult); 
       ?>
     <table  >
@@ -124,7 +124,7 @@
         
       </tr>
        <tr >
-        <h5 style="color:orange ; padding-left:1.5%;">Applicants Number : <a> <?php echo "<a href='../View Volunteers/ViewVolunteers.php?id=".$cases["case_id"]."'>" .$applied."</a>"; ?> </a></h5>
+        <h5 style="color:orange ; padding-left:1.5%;">Applicants Number : <a> <?php echo "<a href='../View Volunteers/?id=".$cases["case_id"]."'>" .$applied."</a>"; ?> </a></h5>
        
         <br>
      
@@ -138,10 +138,11 @@
       </tr>
 
     </table>
+    <br>
+   <hr class="style-seven">
   </div>
 
-  <br>
-   <hr class="style-seven">
+  
    
   <?php } ?>
 

@@ -5,7 +5,7 @@
 	$result = mysql_query("SELECT u.user_id, user_name, email, birth_date, image, job_description, phone_number 
 					FROM user u,user_case uc WHERE u.user_id = uc.user_id AND case_id = ".$case_id) or die(mysql_error());
 
-	$accResult = mysql_query("SELECT accepted_id FROM Cases WHERE case_id = ".$case_id);
+	$accResult = mysql_query("SELECT accepted_id FROM cases WHERE case_id = ".$case_id);
 	$accRow = mysql_fetch_row($accResult);
 ?>
 <html>

@@ -41,8 +41,8 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-             <li ><a href="tickets.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-            <li class="active" ><a href="#addCase"><span class="glyphicon glyphicon-pencil "></span>Add Case</a></li>
+             <li class="active" ><a href="tickets.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+            <li  ><a href="#addCase"><span class="glyphicon glyphicon-pencil "></span>Add Case</a></li>
             <li ><a  href="#addAdmin" ><span class="glyphicon glyphicon-user " ></span>Add Admin </a></li>
             <li ><a  href="#addRep" ><span class="glyphicon glyphicon-plus " ></span>Add Representative </a></li>
             <li><a href="#showCase"><span class="glyphicon glyphicon-th-list"></span>Show Cases</a></li>

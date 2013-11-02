@@ -5,7 +5,7 @@
 	$case_id = $_GET["case_id"];
 	$now = $_GET["now"];
 	if (strpos($now, "Accept Volunteer") !== false) {
-		mysql_query("UPDATE Cases SET accepted_id = ".$user_id." WHERE case_id =".$case_id) or die(mysql_error());
+		mysql_query("UPDATE cases SET accepted_id = ".$user_id." WHERE case_id =".$case_id) or die(mysql_error());
 
 		$result = mysql_query("SELECT title FROM cases WHERE case_id = ".$case_id) or die(mysql_error());
 		$row = mysql_fetch_row($result);

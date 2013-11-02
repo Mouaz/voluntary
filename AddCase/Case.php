@@ -1,10 +1,9 @@
 <?php
 	include '../service/actions/general.php';
 	include '../service/init.php';
-	//session_start();
-	//$rep_id = $_SESSION["rep_id"];
+	
+	$rep_id = $_SESSION["rep_id"];
 
-	//_________FOR TESTING ONLY__________\\
 	$rep_id = 2;
 
 	$title = $_POST["title"];
@@ -21,6 +20,6 @@
 	$query = "INSERT INTO cases (title, description, location, closed, image, ngo_id) 
 				 VALUES ('".$title."', '".$desc."', '".$loc."', 0, '".$image."' , ".$ngo_id.")";
 	mysql_query($query);
-	header('Location: ../ShowCases/ShowCasesAdmin.php');
+	header('Location: ../ShowCases/');
 	
 ?>
